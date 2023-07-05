@@ -14,7 +14,6 @@ def Usage():
     Echo("  ")
     Echo("Note:")
     Echo("  Get a list of mounted snapshots and their IDs by running snapshot mount list")
-    Echo("  ")
     exit(0)
     pass
 

@@ -10,18 +10,16 @@ from additions.echo import Echo, EchoStyles, CombineEchoStyles
 
 
 
-
 def Usage():
     Echo("Usage:")
-    Echo("  mount <ID> [optional: mountpoint name] [optional: -w]")
+    Echo("  mount <ID/'list'> [optional: mountpoint name] [optional: -w]")
     Echo("  This will create a new share using the snapshot specified.")
     Echo("  By default, the snapshot is mounted as a read-only file system.")
     Echo("  In order to mount with write access, add '-w' at then end of your arguments.")
     Echo("Note: The mountpoint will always be placed in '/mnt/user/' and cannot start with a '.'.")
     Echo("  ")
-    Echo("  mount list")
+    Echo(f"  {EchoStyles.BOLD}mount list{EchoStyles.CLEARBOLD}")
     Echo("  List all mounted snapshots.")
-    Echo("  ")
     exit(0)
     pass
 
