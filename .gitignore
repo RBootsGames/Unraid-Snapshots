@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+dist/
+build/
+snapshot files/snapshot.spec
+snapshot files/snapshot_scripts/testing.py
+snapshot files/snapshot

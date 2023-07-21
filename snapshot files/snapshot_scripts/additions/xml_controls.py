@@ -61,6 +61,9 @@ class XmlControls:
             pass
         pass
 
+    def GetMountedSnapshots(self):
+        return list(filter(lambda ss: ss.IsMounted(), self.snapshotList))
+    
     # create a new XML file with the results
     def SaveXml(self):
         xmlstr = minidom.parseString(ET.tostring(self.snapshotData)).toprettyxml(indent="    ")

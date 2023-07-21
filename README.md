@@ -39,10 +39,12 @@ Unmounts a snapshot that was previously mounted.
 #### Extra note
 **If you add another disk to your array, you will need to run `snapshot convert` again. This is because when Unraid creates a new directory on the new drive it won't create a btrfs sub volume, which is required to make the snapshots work.**
 
-## prerequisites
+## Building
 
-You need to have Python 3 installed on your server in order to run these scripts. You can install Python using the NerdTools plugin available on the Community Apps page. Your disks need to be using btrfs as the filesystem.
+Build the project by running `pyinstaller --onefile snapshot.py`
+You need to have python 3 and pyinstaller installed in order to build the project. This needs to be built on Linux in order build it for Unraid. You can also build the project using Windows WSL.
+
 
 ## Installation Instructions
 
-All you need to do is run the install script and it will create symlinks to the files in /usr/bin/. It will get uninstalled after a reboot like this though. I recommend installing the User Scripts app (also on the Community Apps page) and creating a script that will run the snapshot installer on the array's first start.
+All you need to do is run the install script and it will create a symlink to the snapshot file in /usr/bin/. It will get uninstalled after a reboot like this though. I recommend installing the User Scripts app (also on the Community Apps page) and creating a script that will run the snapshot installer on the array's first start.

@@ -1,12 +1,12 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 SC="$DIR/snapshot"
-ADDITIONS="$DIR/snapshot_scripts"
+# ADDITIONS="$DIR/snapshot_scripts"
 
 END="/usr/bin"
 
 ln -sf "$SC" "$END/snapshot"
-ln -sfd "$ADDITIONS" "$END/snapshot_scripts"
+# ln -sfd "$ADDITIONS" "$END/snapshot_scripts"
 
 # cp "$SC" "$END/snapshot"
 # cp -rT "$ADDITIONS" "$END/snapshot_scripts"

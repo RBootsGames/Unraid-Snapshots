@@ -1,6 +1,6 @@
 import os
+import sys
 from sys import argv
-
 from additions.snapinfo import Snapshot
 from additions.Command import RunCommand
 from additions.AllDisks import GetDiskArray
@@ -14,15 +14,14 @@ def Usage():
     Echo("  ")
     Echo("Note:")
     Echo("  Get a list of mounted snapshots and their IDs by running snapshot mount list")
-    exit(0)
-    pass
+    sys.exit()
 
 def UnmountSnapshot(snapId):
     xml = XmlControls()
 
     if len(xml.snapshotData) == 0:
         print("No snapshots were found.")
-        exit(0)
+        sys.exit()
 
     # if snapId+1 > len(xml.snapshotData):
     snap:Snapshot
@@ -30,11 +29,11 @@ def UnmountSnapshot(snapId):
         snap = xml.snapshotList[snapId]
     except IndexError as err:
         Echo(err, EchoStyles.RED)
-        exit(0)
+        sys.exit()
 
     if snap.IsMounted() == False:
         Echo("This snapshot is not currently mounted.")
-        exit(0)
+        sys.exit()
 
     # get mount name
     mountName = snap.GetMountNameFromConfig()
@@ -58,15 +57,15 @@ def UnmountSnapshot(snapId):
     Echo(f"Successfully unmounted snapshot from share {EchoStyles.BOLD}{mountName}")
     pass
 
-if __name__ == "__main__":
-    # this will get rid of empty arguments
-    args = [i for i in argv if i]
+# if __name__ == "__main__":
+#     # this will get rid of empty arguments
+#     args = [i for i in argv if i]
     
-    if len(args) == 1:
-        Usage()
+#     if len(args) == 1:
+#         Usage()
 
-    if args[1].isdigit():
-        UnmountSnapshot(int(args[1]))
-    else:
-        Echo("ID needs to be a number.", EchoStyles.RED)
-        Usage()
+#     if args[1].isdigit():
+#         UnmountSnapshot(int(args[1]))
+#     else:
+#         Echo("ID needs to be a number.", EchoStyles.RED)
+#         Usage()
